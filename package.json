@@ -1,0 +1,61 @@
+{
+  "name": "shell-executor",
+  "version": "1.0.0",
+  "description": "A small nodejs module to execute shell commands in parallel",
+  "main": "index.js",
+  "scripts": {
+    "beautify": "esbeautifier './index.js' './src/**/*.js' './specs/**/*.js' './bin/**/*.js'",
+    "beautify-check": "esbeautifier -k './index.js' './src/**/*.js' './specs/**/*.js' './bin/**/*.js'",
+    "eslint": "eslinter './index.js' './src/**/*.js' './specs/**/*.js' './bin/**/*.js'",
+    "lint": "npm run beautify && npm run eslint",
+    "test": "mocha-runner './specs/**/*.js'",
+    "cover": "istanbul cover -x 'specs/**/*.js' mocha-runner './specs/**/*.js' html text-summary",
+    "watch": "watch-spawn -i -p './specs/**/*.js' npm run cover",
+    "check": "npm run beautify-check && npm run eslint",
+    "prepush": "npm run check && npm run test",
+    "changelog": "changelogx -f markdown -o ./changelog.md",
+    "install-hooks": "prepush install && changelogx install-hook",
+    "bump": "bumpery --verify='npm run check'"
+  },
+  "bin": {
+    "shell-exec": "./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/royriojas/shell-executor"
+  },
+  "license": "MIT",
+  "author": "Roy Riojas (http://royriojas.com)",
+  "prepush": [
+    "npm run check"
+  ],
+  "devDependencies": {
+    "bumpery": "^1.0.7",
+    "changelogx": "^1.0.12",
+    "esbeautifier": "^2.0.5",
+    "eslinter": "^1.0.3",
+    "istanbul": "^0.3.14",
+    "mocha-runner": "^1.0.8",
+    "prepush": "^2.0.4",
+    "proxyquire": "^1.5.0",
+    "watch-spawn": "^1.0.3"
+  },
+  "dependencies": {
+    "clix": "^1.0.7",
+    "dispatchy": "^1.0.2",
+    "extend": "^2.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/royriojas/shell-executor/issues"
+  },
+  "homepage": "https://github.com/royriojas/shell-executor",
+  "keywords": [
+    "parallel shell",
+    "shell",
+    "parallel",
+    "commands",
+    "shell exec",
+    "exec",
+    "spawn"
+  ]
+}
