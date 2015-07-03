@@ -1,6 +1,6 @@
 {
   "name": "shell-executor",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A small nodejs module to execute shell commands in parallel",
   "main": "index.js",
   "scripts": {
@@ -31,17 +31,17 @@
   ],
   "devDependencies": {
     "bumpery": "^1.0.7",
-    "changelogx": "^1.0.12",
-    "esbeautifier": "^2.0.5",
-    "eslinter": "^1.0.3",
-    "istanbul": "^0.3.14",
+    "changelogx": "^1.0.13",
+    "esbeautifier": "^3.1.3",
+    "eslinter": "^2.0.1",
+    "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
     "prepush": "^2.0.4",
     "proxyquire": "^1.5.0",
     "watch-spawn": "^1.0.3"
   },
   "dependencies": {
-    "clix": "^1.0.7",
+    "clix": "^1.1.1",
     "dispatchy": "^1.0.2",
     "extend": "^2.0.1"
   },
