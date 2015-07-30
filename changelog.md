@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v0.3.0
+- **Refactoring**
+  - use spawnly as a way to normalize the `child_process.spawn` utility interface - [de9c0aa]( https://github.com/royriojas/shell-executor/commit/de9c0aa ), [royriojas](https://github.com/royriojas), 30/07/2015 16:27:25
+
+    
 ## v0.2.4
 - **Bug Fixes**
   - properly pass the current working directory to the spwaned script - [ace2c91]( https://github.com/royriojas/shell-executor/commit/ace2c91 ), [royriojas](https://github.com/royriojas), 30/07/2015 15:57:31
