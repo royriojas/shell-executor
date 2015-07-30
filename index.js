@@ -4,12 +4,12 @@ var dispatchy = require( 'dispatchy' );
 
 module.exports = {
   create: function ( process ) {
-    var commands = [];
+    var commands = [ ];
 
     return extend( dispatchy.create(), {
       runCmds: function ( cmds ) {
         var me = this;
-        cmds = cmds || [];
+        cmds = cmds || [ ];
 
         cmds.forEach( function ( cmd ) {
           me.run( cmd );
@@ -26,10 +26,7 @@ module.exports = {
           env: process.env
         } );
 
-        me.fire( 'command:start', {
-          cp: cp,
-          cmd: cmd
-        } );
+        me.fire( 'command:start', { cp: cp, cmd: cmd } );
 
         cp.on( 'exit', function ( exitCode ) {
           me.fire( 'command:exit', {
