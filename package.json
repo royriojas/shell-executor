@@ -1,6 +1,6 @@
 {
   "name": "shell-executor",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A small nodejs module to execute shell commands in parallel",
   "main": "index.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "onDirtyState": "stash"
   },
   "precommit": {
-    "skipEnvVar" : "GITPERLLIB",
+    "skipEnvVar": "GITPERLLIB",
     "tasks": [
       "npm run verify"
     ],
