@@ -50,7 +50,7 @@
     "eslinter": "^2.1.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
-    "precommit": "^1.0.2",
+    "precommit": "^1.1.0",
     "prepush": "^3.1.2",
     "proxyquire": "^1.6.0",
     "watch-spawn": "^1.0.3"
@@ -58,8 +58,8 @@
   "dependencies": {
     "clix": "^1.1.5",
     "dispatchy": "^1.0.3",
-    "extend": "^2.0.1",
-    "jq-trim": "^0.1.0"
+    "extend": "^3.0.0",
+    "spawnly": "^0.1.0"
   },
   "bugs": {
     "url": "https://github.com/royriojas/shell-executor/issues"
