@@ -11,7 +11,7 @@ module.exports = {
 
     var nodeProcess = require( './process' );
 
-    var cmdManager = require( '../index' ).create( nodeProcess );
+    var cmdManager = require( '../index' ).create();
 
     cmdManager.on( 'command:start', function ( e, args ) {
       program.subtle( 'starting command', args.cmd );

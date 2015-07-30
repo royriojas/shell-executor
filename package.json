@@ -58,7 +58,8 @@
   "dependencies": {
     "clix": "^1.1.5",
     "dispatchy": "^1.0.3",
-    "extend": "^2.0.1"
+    "extend": "^2.0.1",
+    "jq-trim": "^0.1.0"
   },
   "bugs": {
     "url": "https://github.com/royriojas/shell-executor/issues"

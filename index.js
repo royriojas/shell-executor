@@ -1,9 +1,39 @@
 var spawn = require( 'child_process' ).spawn;
 var extend = require( 'extend' );
 var dispatchy = require( 'dispatchy' );
+var process = require( './src/process' );
+
+var trim = require( 'jq-trim' );
+
+function normalizeArgs( command ) {
+  var shell, args;
+  var options = {
+    stdio: 'inherit',
+    cwd: process.cwd,
+    env: process.env
+  };
+
+  command = trim( command );
+
+  if ( process.platform === 'win32' ) {
+    shell = process.env.comspec || 'cmd.exe';
+    args = [ '/s', '/c', '"' + command + '"' ];
+    options.windowsVerbatimArguments = true;
+  } else {
+    shell = '/bin/sh';
+    args = [ '-c', command ];
+  }
+
+  return {
+    cmd: command,
+    shell: shell,
+    args: args,
+    options: options
+  };
+}
 
 module.exports = {
-  create: function ( process ) {
+  create: function () {
     var commands = [ ];
 
     return extend( dispatchy.create(), {
@@ -17,14 +47,10 @@ module.exports = {
       },
       run: function ( cmd ) {
         var me = this;
-        var args = cmd.split( ' ' );
-        var command = args.shift();
 
-        var cp = spawn( command, args, {
-          stdio: 'inherit',
-          cwd: process.cwd,
-          env: process.env
-        } );
+        var res = normalizeArgs( cmd );
+
+        var cp = spawn( res.shell, res.args, res.options );
 
         me.fire( 'command:start', { cp: cp, cmd: cmd } );
 
