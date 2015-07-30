@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v0.2.3
+- **Features**
+  - Add support for commands in sequence, using `&&`. Fixes [#2](https://github.com/royriojas/shell-executor/issues/2) - [50bd398]( https://github.com/royriojas/shell-executor/commit/50bd398 ), [royriojas](https://github.com/royriojas), 30/07/2015 02:24:40
+
+    
 ## v0.2.2
 - **Refactoring**
   - Beautified code - [2ea617d]( https://github.com/royriojas/shell-executor/commit/2ea617d ), [royriojas](https://github.com/royriojas), 30/07/2015 01:08:36
