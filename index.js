@@ -9,7 +9,7 @@ function normalizeArgs( command ) {
   var shell, args;
   var options = {
     stdio: 'inherit',
-    cwd: process.cwd,
+    cwd: process.cwd(),
     env: process.env
   };
 
