@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v0.2.4
+- **Bug Fixes**
+  - properly pass the current working directory to the spwaned script - [ace2c91]( https://github.com/royriojas/shell-executor/commit/ace2c91 ), [royriojas](https://github.com/royriojas), 30/07/2015 15:57:31
+
+    
 ## v0.2.3
 - **Features**
   - Add support for commands in sequence, using `&&`. Fixes [#2](https://github.com/royriojas/shell-executor/issues/2) - [50bd398]( https://github.com/royriojas/shell-executor/commit/50bd398 ), [royriojas](https://github.com/royriojas), 30/07/2015 02:24:40
