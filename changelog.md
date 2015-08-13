@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v0.3.1
+- **Refactoring**
+  - Use latest spawnly - [451b41d]( https://github.com/royriojas/shell-executor/commit/451b41d ), [royriojas](https://github.com/royriojas), 12/08/2015 22:34:21
+
+    
 ## v0.3.0
 - **Refactoring**
   - use spawnly as a way to normalize the `child_process.spawn` utility interface - [de9c0aa]( https://github.com/royriojas/shell-executor/commit/de9c0aa ), [royriojas](https://github.com/royriojas), 30/07/2015 16:27:25
