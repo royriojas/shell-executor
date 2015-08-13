@@ -47,7 +47,8 @@ module.exports = {
         var me = this;
         commands.forEach( function ( cp ) {
           if ( !cp.exitCode ) {
-            cp.removeAllListeners( 'close' );
+
+            cp.removeAllListeners( 'exit' );
             cp.removeAllListeners( 'error' );
             me.fire( 'command:killed', cp );
             cp.kill( 'SIGINT' );
