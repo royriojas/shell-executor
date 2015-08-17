@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v0.3.2
+- **Enhancements**
+  - Update clix to get better error management - [5b55ba4]( https://github.com/royriojas/shell-executor/commit/5b55ba4 ), [royriojas](https://github.com/royriojas), 17/08/2015 03:29:40
+
+    
 ## v0.3.1
 - **Refactoring**
   - Use latest spawnly - [451b41d]( https://github.com/royriojas/shell-executor/commit/451b41d ), [royriojas](https://github.com/royriojas), 12/08/2015 22:34:21
