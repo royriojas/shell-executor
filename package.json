@@ -56,7 +56,7 @@
     "watch-spawn": "^1.0.3"
   },
   "dependencies": {
-    "clix": "^1.1.5",
+    "clix": "^2.0.13",
     "dispatchy": "^1.0.3",
     "extend": "^3.0.0",
     "spawnly": "^1.0.0"
