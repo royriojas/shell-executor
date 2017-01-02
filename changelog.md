@@ -1,65 +1,70 @@
 
 # shell-executor - Changelog
+## v0.4.0
+- **Refactoring**
+  - Add duration for the execution of each command - [660866c]( https://github.com/royriojas/shell-executor/commit/660866c ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 02:19:30
+
+    
 ## v0.3.2
 - **Enhancements**
-  - Update clix to get better error management - [5b55ba4]( https://github.com/royriojas/shell-executor/commit/5b55ba4 ), [royriojas](https://github.com/royriojas), 17/08/2015 03:29:40
+  - Update clix to get better error management - [5b55ba4]( https://github.com/royriojas/shell-executor/commit/5b55ba4 ), [royriojas](https://github.com/royriojas), 17/08/2015 05:29:40
 
     
 ## v0.3.1
 - **Refactoring**
-  - Use latest spawnly - [451b41d]( https://github.com/royriojas/shell-executor/commit/451b41d ), [royriojas](https://github.com/royriojas), 12/08/2015 22:34:21
+  - Use latest spawnly - [451b41d]( https://github.com/royriojas/shell-executor/commit/451b41d ), [royriojas](https://github.com/royriojas), 13/08/2015 00:34:21
 
     
 ## v0.3.0
 - **Refactoring**
-  - use spawnly as a way to normalize the `child_process.spawn` utility interface - [de9c0aa]( https://github.com/royriojas/shell-executor/commit/de9c0aa ), [royriojas](https://github.com/royriojas), 30/07/2015 16:27:25
+  - use spawnly as a way to normalize the `child_process.spawn` utility interface - [de9c0aa]( https://github.com/royriojas/shell-executor/commit/de9c0aa ), [royriojas](https://github.com/royriojas), 30/07/2015 18:27:25
 
     
 ## v0.2.4
 - **Bug Fixes**
-  - properly pass the current working directory to the spwaned script - [ace2c91]( https://github.com/royriojas/shell-executor/commit/ace2c91 ), [royriojas](https://github.com/royriojas), 30/07/2015 15:57:31
+  - properly pass the current working directory to the spwaned script - [ace2c91]( https://github.com/royriojas/shell-executor/commit/ace2c91 ), [royriojas](https://github.com/royriojas), 30/07/2015 17:57:31
 
     
 ## v0.2.3
 - **Features**
-  - Add support for commands in sequence, using `&&`. Fixes [#2](https://github.com/royriojas/shell-executor/issues/2) - [50bd398]( https://github.com/royriojas/shell-executor/commit/50bd398 ), [royriojas](https://github.com/royriojas), 30/07/2015 02:24:40
+  - Add support for commands in sequence, using `&&`. Fixes [#2](https://github.com/royriojas/shell-executor/issues/2) - [50bd398]( https://github.com/royriojas/shell-executor/commit/50bd398 ), [royriojas](https://github.com/royriojas), 30/07/2015 04:24:40
 
     
 ## v0.2.2
 - **Refactoring**
-  - Beautified code - [2ea617d]( https://github.com/royriojas/shell-executor/commit/2ea617d ), [royriojas](https://github.com/royriojas), 30/07/2015 01:08:36
+  - Beautified code - [2ea617d]( https://github.com/royriojas/shell-executor/commit/2ea617d ), [royriojas](https://github.com/royriojas), 30/07/2015 03:08:36
 
     
 - **Build Scripts Changes**
-  - Update dependencies and include npm scripts for bumping versions - [3d6279c]( https://github.com/royriojas/shell-executor/commit/3d6279c ), [royriojas](https://github.com/royriojas), 30/07/2015 01:08:13
+  - Update dependencies and include npm scripts for bumping versions - [3d6279c]( https://github.com/royriojas/shell-executor/commit/3d6279c ), [royriojas](https://github.com/royriojas), 30/07/2015 03:08:13
 
     
-  -  remove `bumpery` in favor of npm scripts - [6fce0eb]( https://github.com/royriojas/shell-executor/commit/6fce0eb ), [royriojas](https://github.com/royriojas), 30/07/2015 01:06:29
+  -  remove `bumpery` in favor of npm scripts - [6fce0eb]( https://github.com/royriojas/shell-executor/commit/6fce0eb ), [royriojas](https://github.com/royriojas), 30/07/2015 03:06:29
 
     
-  - ignore .eslintrc - [4a82f52]( https://github.com/royriojas/shell-executor/commit/4a82f52 ), [royriojas](https://github.com/royriojas), 30/07/2015 00:33:21
+  - ignore .eslintrc - [4a82f52]( https://github.com/royriojas/shell-executor/commit/4a82f52 ), [royriojas](https://github.com/royriojas), 30/07/2015 02:33:21
 
     
 ## v0.2.1
 - **Documentation**
-  - Add documentation about the removal of the colored output. Fixes [#1](https://github.com/royriojas/shell-executor/issues/1) - [91c2d4f]( https://github.com/royriojas/shell-executor/commit/91c2d4f ), [royriojas](https://github.com/royriojas), 03/07/2015 16:52:46
+  - Add documentation about the removal of the colored output. Fixes [#1](https://github.com/royriojas/shell-executor/issues/1) - [91c2d4f]( https://github.com/royriojas/shell-executor/commit/91c2d4f ), [royriojas](https://github.com/royriojas), 03/07/2015 18:52:46
 
     
 - **Build Scripts Changes**
-  - Add do-changelog npm script - [41f9172]( https://github.com/royriojas/shell-executor/commit/41f9172 ), [royriojas](https://github.com/royriojas), 03/07/2015 16:50:38
+  - Add do-changelog npm script - [41f9172]( https://github.com/royriojas/shell-executor/commit/41f9172 ), [royriojas](https://github.com/royriojas), 03/07/2015 18:50:38
 
     
 ## v0.1.1
 - **Build Scripts Changes**
-  - Ignore ide generated files - [16e4960]( https://github.com/royriojas/shell-executor/commit/16e4960 ), [royriojas](https://github.com/royriojas), 08/06/2015 01:07:13
+  - Ignore ide generated files - [16e4960]( https://github.com/royriojas/shell-executor/commit/16e4960 ), [royriojas](https://github.com/royriojas), 08/06/2015 03:07:13
 
     
 ## v0.1.0
 - **Features**
-  - First working version - [9dc3258]( https://github.com/royriojas/shell-executor/commit/9dc3258 ), [royriojas](https://github.com/royriojas), 07/06/2015 01:23:16
+  - First working version - [9dc3258]( https://github.com/royriojas/shell-executor/commit/9dc3258 ), [royriojas](https://github.com/royriojas), 07/06/2015 03:23:16
 
     
 - **Other changes**
-  - Initial commit - [ffdaba1]( https://github.com/royriojas/shell-executor/commit/ffdaba1 ), [Roy Riojas](https://github.com/Roy Riojas), 07/06/2015 00:05:06
+  - Initial commit - [ffdaba1]( https://github.com/royriojas/shell-executor/commit/ffdaba1 ), [Roy Riojas](https://github.com/Roy Riojas), 07/06/2015 02:05:06
 
     
