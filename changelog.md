@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v0.6.0
+- **Build Scripts Changes**
+  - update deps - [abd80de]( https://github.com/royriojas/shell-executor/commit/abd80de ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 03:09:05
+
+    
 ## v0.4.0
 - **Refactoring**
   - Add duration for the execution of each command - [660866c]( https://github.com/royriojas/shell-executor/commit/660866c ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 02:19:30
