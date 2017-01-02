@@ -8,6 +8,18 @@ module.exports = {
     options: [
       {
         heading: 'Options'
+      },
+      {
+        option: 'bail',
+        alias: 'b',
+        type: 'Boolean',
+        description: 'Stop execution as soon as one of the task exit with an exit code different than 0 or an error happened'
+      },
+      {
+        option: 'sortOutput',
+        alias: 'o',
+        type: 'Boolean',
+        description: 'Sort the stdout and stderr output from the commands'
       }
     ]
   }
