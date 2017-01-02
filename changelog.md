@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v1.0.0
+- **Features**
+  - add npm bin path to the env - [11843bc]( https://github.com/royriojas/shell-executor/commit/11843bc ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 03:20:35
+
+    
 ## v0.6.0
 - **Build Scripts Changes**
   - update deps - [abd80de]( https://github.com/royriojas/shell-executor/commit/abd80de ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 03:09:05
