@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v2.0.0
+- **Features**
+  - add options to control the execution flow, bail and sortOutput - [6ea3800]( https://github.com/royriojas/shell-executor/commit/6ea3800 ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 05:20:56
+
+    
 ## v1.0.0
 - **Features**
   - add npm bin path to the env - [11843bc]( https://github.com/royriojas/shell-executor/commit/11843bc ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 03:20:35
