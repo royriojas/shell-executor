@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v2.0.1
+- **Build Scripts Changes**
+  - Fix missing module - [a906f4f]( https://github.com/royriojas/shell-executor/commit/a906f4f ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 06:03:51
+
+    
 ## v2.0.0
 - **Features**
   - add options to control the execution flow, bail and sortOutput - [6ea3800]( https://github.com/royriojas/shell-executor/commit/6ea3800 ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 05:20:56
