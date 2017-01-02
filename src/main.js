@@ -9,6 +9,8 @@ module.exports = {
       return;
     }
 
+    var pretty = require( 'pretty-time' );
+
     var nodeProcess = require( './process' );
 
     var cmdManager = require( '../index' ).create();
@@ -17,8 +19,12 @@ module.exports = {
       program.subtle( 'starting command', args.cmd );
     } );
 
+    cmdManager.on( 'command:error', function ( e, args ) {
+      program.subtle( 'command error', args, 'duration: ', pretty( args.duration, 's' ) );
+    } );
+
     cmdManager.on( 'command:exit', function ( e, args ) {
-      program.subtle( 'command exited', args.exitCode );
+      program.subtle( 'command', args.cmd, 'exited with code', args.exitCode + ', took: ', pretty( args.duration ) );
     } );
 
     cmdManager.on( 'command:killed', function ( e, args ) {
@@ -34,11 +40,11 @@ module.exports = {
     cmdManager.runCmds( cmds );
 
     var lines = [
-      'Executing commands done',
-      'To kill commands from the shell In case I become a zombie, execute:',
+      'Commands execution started',
       '',
+      '    To kill commands from the shell In case I become a zombie, execute:',
       '',
-      cmdManager.getKillCommand(),
+      '    ' + cmdManager.getKillCommand(),
       '',
       ''
     ];

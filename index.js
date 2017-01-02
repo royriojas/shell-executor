@@ -2,6 +2,18 @@ var spawnly = require( 'spawnly' );
 var extend = require( 'extend' );
 var dispatchy = require( 'dispatchy' );
 
+var timeManager = {
+  start: function () {
+    var start = process.hrtime();
+    return {
+      stop: function () {
+        var diff = process.hrtime( start );
+        return (diff[ 0 ] * 1e9) + diff[ 1 ];
+      }
+    };
+  }
+};
+
 module.exports = {
   create: function () {
     var commands = [ ];
@@ -18,19 +30,25 @@ module.exports = {
       run: function ( cmd ) {
         var me = this;
 
+        var timer = timeManager.start();
+
         var cp = spawnly( cmd, { stdio: 'inherit' } );
 
         me.fire( 'command:start', { cp: cp, cmd: cmd } );
 
         cp.on( 'exit', function ( exitCode ) {
+          var diff = timer.stop();
           me.fire( 'command:exit', {
             cp: cp,
             cmd: cmd,
-            exitCode: exitCode
+            exitCode: exitCode,
+            duration: diff
           } );
         } );
 
         cp.on( 'error', function ( err ) {
+          err = err || { };
+          err.duration = timer.stop();
           me.fire( 'command:error', err );
         } );
 

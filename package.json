@@ -45,21 +45,22 @@
     "onDirtyState": "stash"
   },
   "devDependencies": {
-    "changelogx": "^1.0.16",
+    "changelogx": "2.0.1",
     "esbeautifier": "^4.0.1",
     "eslinter": "^2.1.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
-    "precommit": "^1.1.0",
-    "prepush": "^3.1.2",
+    "precommit": "1.2.2",
+    "prepush": "3.1.11",
     "proxyquire": "^1.6.0",
-    "watch-spawn": "^1.0.3"
+    "watch-spawn": "2.0.0"
   },
   "dependencies": {
-    "clix": "^2.0.13",
+    "clix": "2.0.16",
     "dispatchy": "^1.0.3",
     "extend": "^3.0.0",
-    "spawnly": "^1.0.0"
+    "pretty-time": "0.2.0",
+    "spawnly": "1.0.1"
   },
   "bugs": {
     "url": "https://github.com/royriojas/shell-executor/issues"
