@@ -1,18 +1,10 @@
+var exec = require( 'child_process' ).exec;
+var path = require( 'path' );
+var pretty = require( 'pretty-time' );
+var nodeProcess = require( './process' );
+
 module.exports = {
-  run: function ( program ) {
-
-    var cmds = program.opts._;
-
-    if ( cmds.length === 0 ) {
-      program.error( 'please provide some commands to execute' );
-      program.showHelp();
-      return;
-    }
-
-    var pretty = require( 'pretty-time' );
-
-    var nodeProcess = require( './process' );
-
+  _execute: function ( program, cmds ) {
     var cmdManager = require( '../index' ).create();
 
     cmdManager.on( 'command:start', function ( e, args ) {
@@ -56,6 +48,33 @@ module.exports = {
       cmdManager.stopAll();
       nodeProcess.exit( code );
     } );
+  },
+  run: function ( program ) {
 
+    var cmds = program.opts._;
+
+    var addNPMBinToPath = function ( cb ) {
+      exec( 'npm bin', function ( error, stdout, stderr ) {
+        if ( error ) {
+          program.error( 'received error', error );
+          stderr && program.error( stderr );
+          return;
+        }
+
+        process.env.PATH += '' + path.delimiter + stdout.trim();
+
+        cb && cb();
+      } );
+    };
+
+    if ( cmds.length === 0 ) {
+      program.error( 'please provide some commands to execute' );
+      program.showHelp();
+      return;
+    }
+    var me = this;
+    addNPMBinToPath( function () {
+      me._execute( program, cmds );
+    } );
   }
 };
