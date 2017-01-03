@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v2.0.2
+- **Features**
+  - Add color to processes using stdin pipe instead of inherit stdio - [8b96a7d]( https://github.com/royriojas/shell-executor/commit/8b96a7d ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 18:14:49
+
+    
 ## v2.0.1
 - **Build Scripts Changes**
   - Fix missing module - [a906f4f]( https://github.com/royriojas/shell-executor/commit/a906f4f ), [Roy Riojas](https://github.com/Roy Riojas), 02/01/2017 06:03:51
