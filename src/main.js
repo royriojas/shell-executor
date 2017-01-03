@@ -92,6 +92,10 @@ module.exports = {
           return;
         }
 
+        if ( typeof process.env.FORCE_COLOR === 'undefined' ) {
+          process.env.FORCE_COLOR = 'true';
+        }
+
         process.env.PATH += '' + path.delimiter + stdout.trim();
 
         cb && cb();
