@@ -2,6 +2,7 @@ var spawnly = require( 'spawnly' );
 var extend = require( 'extend' );
 var dispatchy = require( 'dispatchy' );
 var Promise = require( 'es6-promise' ).Promise;
+var pretty = require( 'pretty-time' );
 
 function streamToString( stream ) {
   var chunks = [ ];
@@ -84,7 +85,8 @@ module.exports = {
                 stderr: results[ 1 ],
                 cmd: cmd,
                 exitCode: exitCode,
-                duration: diff
+                duration: diff,
+                durationFormmated: pretty( diff, 'ms' )
               };
               me.fire( 'command:exit', args );
               resolve( args );
@@ -95,6 +97,7 @@ module.exports = {
           cp.on( 'error', function ( err ) {
             err = err || { };
             err.duration = timer.stop();
+            err.durationFormmated = pretty( err.duration, 'ms' );
             me.fire( 'command:error', err );
             reject( err );
           } );

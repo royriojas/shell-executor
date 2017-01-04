@@ -1,7 +1,13 @@
 var exec = require( 'child_process' ).exec;
 var path = require( 'path' );
-var pretty = require( 'pretty-time' );
 var nodeProcess = require( './process' );
+
+var printFailed = function ( entries ) {
+  return entries.reduce( function ( seq, entry ) {
+    seq += '   - cmd: ' + entry.cmd + ', exitCode: ' + entry.exitCode + '\n';
+    return seq;
+  }, '\n' );
+};
 
 module.exports = {
   _execute: function ( program, cmds ) {
@@ -14,11 +20,12 @@ module.exports = {
     } );
 
     cmdManager.on( 'command:error', function ( e, args ) {
-      program.subtle( 'command error', args, 'duration: ', pretty( args.duration, 'ms' ) );
+      program.subtle( 'command error', args, 'duration: ', args.durationFormmated );
     } );
 
     cmdManager.on( 'command:exit', function ( e, args ) {
-      program.subtle( 'command', args.cmd, 'exited with code', args.exitCode + ', took: ', pretty( args.duration, 'ms' ) );
+      var method = args.exitCode === 0 ? 'subtle' : 'warn';
+      program[ method ]( 'command', args.cmd, 'exited with code', args.exitCode + ', took:', args.durationFormmated );
       if ( opts.sortOutput ) {
         args.stdout && console.log( args.stdout );
         args.stderr && console.error( args.stderr );
@@ -47,17 +54,17 @@ module.exports = {
 
     p.then( function ( args ) {
       var results = [ ];
-
       args.forEach( function ( result ) {
         if ( result.exitCode !== 0 ) {
           results.push( {
-            cmd: result.cmd, exitCode: result.exitCode
+            cmd: result.cmd,
+            exitCode: result.exitCode
           } );
         }
       } );
 
       if ( results.length > 0 ) {
-        program.error( 'Some commands failed', results );
+        program.error( 'Some commands failed', '\n', printFailed( results ) );
         process.exit( 1 ); // eslint-disable-line
       }
     } );
