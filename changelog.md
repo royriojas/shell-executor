@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v2.0.4
+- **Refactoring**
+  - duration is formatted from shell-executor module - [1eb98c1]( https://github.com/royriojas/shell-executor/commit/1eb98c1 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 20:29:20
+
+    
 ## v2.0.3
 - **Bug Fixes**
   - use ms instead of no min unit - [49544d7]( https://github.com/royriojas/shell-executor/commit/49544d7 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 19:12:45
