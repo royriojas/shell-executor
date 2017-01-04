@@ -20,12 +20,12 @@ module.exports = {
     } );
 
     cmdManager.on( 'command:error', function ( e, args ) {
-      program.subtle( 'command error', args, 'duration: ', args.durationFormmated );
+      program.subtle( 'command error', args, 'duration: ', args.durationFormatted );
     } );
 
     cmdManager.on( 'command:exit', function ( e, args ) {
       var method = args.exitCode === 0 ? 'subtle' : 'warn';
-      program[ method ]( 'command', args.cmd, 'exited with code', args.exitCode + ', took:', args.durationFormmated );
+      program[ method ]( 'command', args.cmd, 'exited with code', args.exitCode + ', took:', args.durationFormatted );
       if ( opts.sortOutput ) {
         args.stdout && console.log( args.stdout );
         args.stderr && console.error( args.stderr );

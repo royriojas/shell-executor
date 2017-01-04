@@ -75,7 +75,7 @@ module.exports = {
                 cmd: cmd,
                 exitCode: exitCode,
                 duration: res.diff,
-                durationFormmated: res.diffFormatted
+                durationFormatted: res.diffFormatted
               };
               me.fire( 'command:exit', args );
               resolve( args );
@@ -87,7 +87,7 @@ module.exports = {
             err = err || { };
             var res = timer.stop();
             err.duration = res.diff;
-            err.durationFormmated = res.diffFormatted;
+            err.durationFormatted = res.diffFormatted;
             me.fire( 'command:error', err );
             reject( err );
           } );
