@@ -2,7 +2,8 @@ var spawnly = require( 'spawnly' );
 var extend = require( 'extend' );
 var dispatchy = require( 'dispatchy' );
 var Promise = require( 'es6-promise' ).Promise;
-var pretty = require( 'pretty-time' );
+
+var timeManager = require( './time-manager' );
 
 function streamToString( stream ) {
   var chunks = [ ];
@@ -21,18 +22,6 @@ function streamToString( stream ) {
     } );
   } );
 }
-
-var timeManager = {
-  start: function () {
-    var start = process.hrtime();
-    return {
-      stop: function () {
-        var diff = process.hrtime( start );
-        return (diff[ 0 ] * 1e9) + diff[ 1 ];
-      }
-    };
-  }
-};
 
 module.exports = {
   create: function () {
@@ -65,7 +54,7 @@ module.exports = {
 
         return new Promise( function ( resolve, reject ) {
           cp.on( 'exit', function ( exitCode ) {
-            var diff = timer.stop();
+            var res = timer.stop();
 
             var stdoutPromise = Promise.resolve( '' );
             var stderrPromise = Promise.resolve( '' );
@@ -85,8 +74,8 @@ module.exports = {
                 stderr: results[ 1 ],
                 cmd: cmd,
                 exitCode: exitCode,
-                duration: diff,
-                durationFormmated: pretty( diff, 'ms' )
+                duration: res.diff,
+                durationFormmated: res.diffFormatted
               };
               me.fire( 'command:exit', args );
               resolve( args );
@@ -96,8 +85,9 @@ module.exports = {
 
           cp.on( 'error', function ( err ) {
             err = err || { };
-            err.duration = timer.stop();
-            err.durationFormmated = pretty( err.duration, 'ms' );
+            var res = timer.stop();
+            err.duration = res.diff;
+            err.durationFormmated = res.diffFormatted;
             me.fire( 'command:error', err );
             reject( err );
           } );
