@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v2.0.6
+- **Bug Fixes**
+  - fix typo reporting formatted diff - [667f198]( https://github.com/royriojas/shell-executor/commit/667f198 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 23:30:44
+
+    
 ## v2.0.5
 - **Refactoring**
   - Factorize time-manager - [e4289a4]( https://github.com/royriojas/shell-executor/commit/e4289a4 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 20:57:22
