@@ -14,11 +14,11 @@ module.exports = {
     } );
 
     cmdManager.on( 'command:error', function ( e, args ) {
-      program.subtle( 'command error', args, 'duration: ', pretty( args.duration, 's' ) );
+      program.subtle( 'command error', args, 'duration: ', pretty( args.duration, 'ms' ) );
     } );
 
     cmdManager.on( 'command:exit', function ( e, args ) {
-      program.subtle( 'command', args.cmd, 'exited with code', args.exitCode + ', took: ', pretty( args.duration ) );
+      program.subtle( 'command', args.cmd, 'exited with code', args.exitCode + ', took: ', pretty( args.duration, 'ms' ) );
       if ( opts.sortOutput ) {
         args.stdout && console.log( args.stdout );
         args.stderr && console.error( args.stderr );
