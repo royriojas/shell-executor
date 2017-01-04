@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v2.0.5
+- **Refactoring**
+  - Factorize time-manager - [e4289a4]( https://github.com/royriojas/shell-executor/commit/e4289a4 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 20:57:22
+
+    
 ## v2.0.4
 - **Refactoring**
   - duration is formatted from shell-executor module - [1eb98c1]( https://github.com/royriojas/shell-executor/commit/1eb98c1 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 20:29:20
