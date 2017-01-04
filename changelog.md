@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v2.0.3
+- **Bug Fixes**
+  - use ms instead of no min unit - [49544d7]( https://github.com/royriojas/shell-executor/commit/49544d7 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 19:12:45
+
+    
 ## v2.0.2
 - **Features**
   - Add color to processes using stdin pipe instead of inherit stdio - [8b96a7d]( https://github.com/royriojas/shell-executor/commit/8b96a7d ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 18:14:49
