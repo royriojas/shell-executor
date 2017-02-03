@@ -78,6 +78,8 @@ export const setProcessLogToGrid = (cmd, grid, index) => {
     },
     stop() {
       if (cp && !cp.exitCode) {
+        cp.stdout.removeAllListeners('data');
+        cp.stderr.removeAllListeners('data');
         cp.removeAllListeners('close');
         cp.kill('SIGINT');
       }
