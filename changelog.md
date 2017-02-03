@@ -1,5 +1,17 @@
 
 # shell-executor - Changelog
+## v3.0.0
+- **Refactoring**
+  - remove cache folder - [36e1411]( https://github.com/royriojas/shell-executor/commit/36e1411 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 02:32:59
+
+    
+  - migrate to es7ish code - [27f141e]( https://github.com/royriojas/shell-executor/commit/27f141e ), [Roy Riojas](https://github.com/Roy Riojas), 18/01/2017 10:17:36
+
+    
+- **Features**
+  - dashboard option added - [a25a923]( https://github.com/royriojas/shell-executor/commit/a25a923 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 02:31:21
+
+    
 ## v2.0.6
 - **Bug Fixes**
   - fix typo reporting formatted diff - [667f198]( https://github.com/royriojas/shell-executor/commit/667f198 ), [Roy Riojas](https://github.com/Roy Riojas), 03/01/2017 23:30:44
