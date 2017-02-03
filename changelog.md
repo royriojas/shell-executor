@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v3.1.0
+- **Refactoring**
+  - dashboard option improved - [3d53cca]( https://github.com/royriojas/shell-executor/commit/3d53cca ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 03:18:10
+
+    
 ## v3.0.0
 - **Refactoring**
   - remove cache folder - [36e1411]( https://github.com/royriojas/shell-executor/commit/36e1411 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 02:32:59
