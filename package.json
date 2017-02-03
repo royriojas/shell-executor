@@ -1,6 +1,6 @@
 {
   "name": "shell-executor",
-  "version": "3.0.0",
+  "version": "3.0.8",
   "description": "A small nodejs module to execute shell commands in parallel",
   "main": "index.js",
   "scripts": {

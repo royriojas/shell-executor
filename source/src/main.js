@@ -38,10 +38,12 @@ module.exports = {
 
     const { grid, screen } = getGridAndScreen();
 
-    cmds.forEach((cmd, index) => {
+    cmds.reduce((seq, cmd, index) => {
       const command = setProcessLogToGrid(cmd, grid, index);
       command.start();
-    });
+      seq.push(command);
+      return seq;
+    }, []);
 
     screen.render();
   },

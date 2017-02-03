@@ -28,10 +28,33 @@ const getPositionByIndex = (index) => {
 export const setProcessLogToGrid = (cmd, grid, index) => {
   const { row, col } = getPositionByIndex(index);
 
-  const log = grid.set(row, col, 6, 4, contrib.log, {
-    fg: 'green',
-    selectedFg: 'green',
-    label: cmd.substr(0, 40),
+  const box = grid.set(row, col, 6, 4, blessed.box, {
+      label: cmd.substr(0, 40),
+      padding: { top: 0, left: 0, right: 0, bottom: 0 },
+      border: {
+        type: 'line',
+      },
+      style: {
+        border: {
+          fg: 'yellow',
+        },
+      },
+    });
+
+  const log = blessed.log({
+    parent: box,
+    tags: true,
+    width: '100%-5',
+    scrollable: true,
+    input: true,
+    alwaysScroll: true,
+    scrollbar: {
+      ch: ' ',
+      inverse: true,
+    },
+    keys: true,
+    vi: true,
+    mouse: true,
   });
 
   const addListener = (stream) => {
@@ -41,9 +64,10 @@ export const setProcessLogToGrid = (cmd, grid, index) => {
     );
   };
 
+  let cp;
   return {
-    start: () => {
-      const cp = spawn(cmd, { stdio: 'pipe' });
+    start() {
+      cp = spawn(cmd, { stdio: 'pipe' });
 
       addListener(cp.stdout);
       addListener(cp.stderr);
@@ -51,6 +75,12 @@ export const setProcessLogToGrid = (cmd, grid, index) => {
       cp.on('close', (exitCode) => {
         log.log(`process exit with code ${ exitCode }`);
       });
+    },
+    stop() {
+      if (cp && !cp.exitCode) {
+        cp.removeAllListeners('close');
+        cp.kill('SIGINT');
+      }
     },
   };
 };
