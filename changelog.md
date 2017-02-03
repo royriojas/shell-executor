@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v3.1.2
+- **Refactoring**
+  - handle ctrl + c - [c8e6fd7]( https://github.com/royriojas/shell-executor/commit/c8e6fd7 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 11:03:27
+
+    
 ## v3.1.1
 - **Refactoring**
   - do not ignore dist folder - [bd2e0f1]( https://github.com/royriojas/shell-executor/commit/bd2e0f1 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 03:26:31
