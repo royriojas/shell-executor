@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v3.1.1
+- **Refactoring**
+  - do not ignore dist folder - [bd2e0f1]( https://github.com/royriojas/shell-executor/commit/bd2e0f1 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 03:26:31
+
+    
 ## v3.1.0
 - **Refactoring**
   - dashboard option improved - [3d53cca]( https://github.com/royriojas/shell-executor/commit/3d53cca ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 03:18:10
