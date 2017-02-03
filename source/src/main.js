@@ -1,3 +1,5 @@
+import { getGridAndScreen, setProcessLogToGrid } from './grid';
+
 const exec = require('child_process').exec;
 const path = require('path');
 const nodeProcess = require('./process');
@@ -30,7 +32,19 @@ const printFailed = entries =>
     return seq;
   }, '\n');
 
+
 module.exports = {
+  _executeCommandsInDashboard(program, cmds) {
+
+    const { grid, screen } = getGridAndScreen();
+
+    cmds.forEach((cmd, index) => {
+      const command = setProcessLogToGrid(cmd, grid, index);
+      command.start();
+    });
+
+    screen.render();
+  },
   _execute(program, cmds) {
     const cmdManager = manager.create(); // eslint-disable-line
 
@@ -108,22 +122,27 @@ module.exports = {
     });
   },
   async run(program) {
-
-    const cmds = program.opts._;
+    const { opts, error, showHelp } = program;
+    const cmds = opts._;
 
     if (cmds.length === 0) {
-      program.error('please provide some commands to execute');
-      program.showHelp();
+      error('please provide some commands to execute');
+      showHelp();
       return;
     }
 
     try {
       await addNPMBinToPath();
-    } catch ({ error, stderr }) {
-      program.error('received error', error);
-      stderr && program.error(stderr);
+    } catch ({ error: err, stderr }) {
+      error('received error', err);
+      stderr && error(stderr);
+      process.exit(1); // eslint-disable-line
     }
 
-    this._execute(program, cmds);
+    if (opts.dashboard) {
+      this._executeCommandsInDashboard(program, cmds);
+    } else {
+      this._execute(program, cmds);
+    }
   },
 };

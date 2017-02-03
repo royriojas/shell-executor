@@ -1,7 +1,6 @@
-const cmdManager = require('../source/index');
+import cmdManager from '../source/index';
 
 describe('index', () => {
-  //  var proxyquire = require( 'proxyquire' );
 
   describe('create', () => {
     it('should return an instance of a cmdManager', () => {

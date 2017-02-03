@@ -10,6 +10,12 @@ module.exports = {
         heading: 'Options',
       },
       {
+        option: 'dashboard',
+        alias: 'd',
+        type: 'Boolean',
+        description: 'Show the processes in a nice dashboard if space allows it',
+      },
+      {
         option: 'bail',
         alias: 'b',
         type: 'Boolean',

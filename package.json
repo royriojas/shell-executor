@@ -23,6 +23,7 @@
     "build": "babel source/ -d dist/"
   },
   "bin": {
+    "sx": "./dist/bin/cli.js",
     "shell-exec": "./dist/bin/cli.js"
   },
   "repository": {
