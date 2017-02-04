@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v3.1.3
+- **Bug Fixes**
+  - fix dashboard mode - [5268a40]( https://github.com/royriojas/shell-executor/commit/5268a40 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 22:37:32
+
+    
 ## v3.1.2
 - **Refactoring**
   - handle ctrl + c - [c8e6fd7]( https://github.com/royriojas/shell-executor/commit/c8e6fd7 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 11:03:27
