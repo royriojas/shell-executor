@@ -37,16 +37,20 @@ module.exports = {
   _executeCommandsInDashboard(program, cmds) {
 
     const { grid, screen } = getGridAndScreen();
+    const count = cmds.length;
 
     const commands = cmds.reduce((seq, cmd, index) => {
-      const command = setProcessLogToGrid(cmd, grid, index);
+      const command = setProcessLogToGrid(cmd, grid, index, count);
       command.start();
       seq.push(command);
       return seq;
     }, []);
 
     screen.key(['escape', 'q', 'C-c'], () => {
-      commands.forEach(cmd => cmd.stop());
+      commands.forEach((cmd) => {
+        program.subtle('stopping', cmd);
+        cmd.stop();
+      });
       return process.exit(0); // eslint-disable-line
     });
 
@@ -149,6 +153,10 @@ module.exports = {
     if (opts.dashboard) {
       this._executeCommandsInDashboard(program, cmds);
     } else {
+      if (cmds.length > 9) {
+        error('in dashboard mode a maximum of 9 commands are allowed');
+        return;
+      }
       this._execute(program, cmds);
     }
   },

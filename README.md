@@ -18,13 +18,18 @@ npm i -g shell-executor
 ## Usage
 
 ```
+# or sx as it is alias for shell-exec
 Usage: shell-exec [options] cmd1, cmd2, ... cmdn
 
 Options:
+  -d, --dashboard   Show the processes in a nice dashboard if space allows it. No more than 9 commands are allowed in this mode
+  -b, --bail        Stop execution as soon as one of the task exit with an exit code different than 0 or an error happened
+  -o, --sortOutput  Sort the stdout and stderr output from the commands
   -h, --help        Show this help
   -v, --version     Outputs the version number
-  -q, --quiet       Show only the summary info
+  -q, --quiet       Show only the summary info - default: false
   --colored-output  Use colored output in logs
+  --stack           if true, uncaught errors will show the stack trace if available
 ```
 
 ## Examples
