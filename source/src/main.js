@@ -1,5 +1,3 @@
-import { getGridAndScreen, setProcessLogToGrid } from './grid';
-
 const exec = require('child_process').exec;
 const path = require('path');
 const nodeProcess = require('./process');
@@ -35,6 +33,28 @@ const printFailed = entries =>
 
 module.exports = {
   _executeCommandsInDashboard(program, cmds) {
+    let gridModule;
+
+    try {
+      // eslint-disable-next-line
+      gridModule = require('./grid');
+    } catch (err) {
+      program.error(`
+
+    Cannot load the grid module. ared blessed and blessed-contrib installed?
+
+    try doing:
+
+      npm i blessed@0.1.81 blessed-contrib@4.7.5
+
+    or with yarn
+
+      yarn add blessed@0.1.81 blessed-contrib@4.7.5
+        `);
+    }
+
+
+    const { getGridAndScreen, setProcessLogToGrid } = gridModule;
 
     const { grid, screen } = getGridAndScreen();
     const count = cmds.length;

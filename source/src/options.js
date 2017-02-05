@@ -13,7 +13,7 @@ module.exports = {
         option: 'dashboard',
         alias: 'd',
         type: 'Boolean',
-        description: 'Show the processes in a nice dashboard if space allows it',
+        description: 'Show the processes in a nice dashboard if space allows it. No more than 9 commands are allowed in this mode. Requires the install of blessed@0.1.81 and blessed-contrib@4.7.5',
       },
       {
         option: 'bail',

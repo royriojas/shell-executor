@@ -22,7 +22,7 @@ npm i -g shell-executor
 Usage: shell-exec [options] cmd1, cmd2, ... cmdn
 
 Options:
-  -d, --dashboard   Show the processes in a nice dashboard if space allows it. No more than 9 commands are allowed in this mode
+  -d, --dashboard   Show the processes in a nice dashboard if space allows it. No more than 9 commands are allowed in this mode. Requires the install of blessed@0.1.81 and blessed-contrib@4.7.5
   -b, --bail        Stop execution as soon as one of the task exit with an exit code different than 0 or an error happened
   -o, --sortOutput  Sort the stdout and stderr output from the commands
   -h, --help        Show this help
