@@ -1,5 +1,11 @@
 
 # shell-executor - Changelog
+## v4.0.0
+#### Breaking change
+- **Refactoring**
+  - blessed and blessed-contrib modules are optional - [2c292e0]( https://github.com/royriojas/shell-executor/commit/2c292e0 ), [Roy Riojas](https://github.com/Roy Riojas), 04/02/2017 23:41:52
+
+    
 ## v3.1.3
 - **Bug Fixes**
   - fix dashboard mode - [5268a40]( https://github.com/royriojas/shell-executor/commit/5268a40 ), [Roy Riojas](https://github.com/Roy Riojas), 03/02/2017 22:37:32
