@@ -19,8 +19,9 @@
     "bump-major": "npm run pre-v && npm version major -m 'BLD: Release v%s' && npm run post-v",
     "bump-minor": "npm run pre-v && npm version minor -m 'BLD: Release v%s' && npm run post-v",
     "bump-patch": "npm run pre-v && npm version patch -m 'BLD: Release v%s' && npm run post-v",
-    "prepublish": "npm run build",
-    "build": "babel source/ -d dist/"
+    "prepublish": "npm run snyk-protect; npm run build",
+    "build": "babel source/ -d dist/",
+    "snyk-protect": "snyk protect"
   },
   "bin": {
     "sx": "./dist/bin/cli.js",
@@ -77,7 +78,8 @@
     "es6-promise": "4.0.5",
     "extend": "3.0.0",
     "pretty-time": "0.2.0",
-    "spawnly": "1.0.1"
+    "spawnly": "1.0.1",
+    "snyk": "^1.53.0"
   },
   "bugs": {
     "url": "https://github.com/royriojas/shell-executor/issues"
@@ -91,5 +93,6 @@
     "shell exec",
     "exec",
     "spawn"
-  ]
+  ],
+  "snyk": true
 }
