@@ -75,7 +75,7 @@
     "clix": "2.2.1",
     "dispatchy": "1.0.3",
     "es6-promise": "4.0.5",
-    "extend": "3.0.0",
+    "extend": "3.0.2",
     "pretty-time": "0.2.0",
     "spawnly": "1.0.1"
   },
