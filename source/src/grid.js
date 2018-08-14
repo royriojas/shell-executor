@@ -14,15 +14,8 @@ export const getGridAndScreen = () => {
 
 const layouts = {
   1: [{ row: 0, col: 0, rowSpan: 12, colSpan: 12 }],
-  2: [
-    { row: 0, col: 0, rowSpan: 12, colSpan: 6 },
-    { row: 0, col: 6, rowSpan: 12, colSpan: 6 },
-  ],
-  3: [
-    { row: 0, col: 0, rowSpan: 6, colSpan: 6 },
-    { row: 0, col: 6, rowSpan: 6, colSpan: 6 },
-    { row: 6, col: 0, rowSpan: 6, colSpan: 12 },
-  ],
+  2: [{ row: 0, col: 0, rowSpan: 12, colSpan: 6 }, { row: 0, col: 6, rowSpan: 12, colSpan: 6 }],
+  3: [{ row: 0, col: 0, rowSpan: 6, colSpan: 6 }, { row: 0, col: 6, rowSpan: 6, colSpan: 6 }, { row: 6, col: 0, rowSpan: 6, colSpan: 12 }],
   4: [
     { row: 0, col: 0, rowSpan: 6, colSpan: 6 },
     { row: 0, col: 6, rowSpan: 6, colSpan: 6 },
@@ -86,17 +79,17 @@ export const setProcessLogToGrid = (cmd, grid, index, count) => {
   const { row, col, rowSpan, colSpan } = getLayoutByIndexAndCount(index, count);
 
   const box = grid.set(row, col, rowSpan, colSpan, blessed.box, {
-      label: cmd.substr(0, 40),
-      padding: { top: 1, left: 1, right: 1, bottom: 1 },
+    label: cmd.substr(0, 40),
+    padding: { top: 1, left: 1, right: 1, bottom: 1 },
+    border: {
+      type: 'line',
+    },
+    style: {
       border: {
-        type: 'line',
+        fg: 'yellow',
       },
-      style: {
-        border: {
-          fg: 'yellow',
-        },
-      },
-    });
+    },
+  });
 
   const log = blessed.log({
     parent: box,
@@ -114,11 +107,9 @@ export const setProcessLogToGrid = (cmd, grid, index, count) => {
     mouse: true,
   });
 
-  const addListener = (stream) => {
+  const addListener = stream => {
     if (!stream.readable) return;
-    stream.on('data', chunk =>
-      log.log(chunk.toString()),
-    );
+    stream.on('data', chunk => log.log(chunk.toString()));
   };
 
   let cp;
@@ -129,8 +120,8 @@ export const setProcessLogToGrid = (cmd, grid, index, count) => {
       addListener(cp.stdout);
       addListener(cp.stderr);
 
-      cp.on('close', (exitCode) => {
-        log.log(`process exit with code ${ exitCode }`);
+      cp.on('close', exitCode => {
+        log.log(`process exit with code ${exitCode}`);
         cp.__closed = true;
       });
     },

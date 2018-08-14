@@ -1,7 +1,6 @@
 import cmdManager from '../source/index';
 
 describe('index', () => {
-
   describe('create', () => {
     it('should return an instance of a cmdManager', () => {
       const cmdInstance = cmdManager.create();
@@ -17,25 +16,15 @@ describe('index', () => {
       const me = this;
       const cmdInstance = cmdManager.create();
 
-      const spy = cmdInstance.run = me.sandbox.spy();
+      const spy = (cmdInstance.run = me.sandbox.spy());
 
-      cmdInstance.runCmds([
-        'echo "hello"',
-        'echo "world"',
-        'echo "test"',
-      ]);
+      cmdInstance.runCmds(['echo "hello"', 'echo "world"', 'echo "test"']);
 
       expect(spy.callCount).to.equal(3);
 
       const calls = spy.getCalls().map(call => call.args[0]);
 
-      expect(calls).to.deep.equal([
-        'echo "hello"',
-        'echo "world"',
-        'echo "test"',
-      ]);
-
+      expect(calls).to.deep.equal(['echo "hello"', 'echo "world"', 'echo "test"']);
     });
   });
-
 });

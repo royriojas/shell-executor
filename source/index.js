@@ -12,13 +12,13 @@ function streamToString(stream) {
       resolve('');
       return;
     }
-    stream.on('data', (chunk) => {
+    stream.on('data', chunk => {
       chunks.push(chunk.toString());
     });
     stream.on('end', () => {
       resolve(chunks.join(''));
     });
-    stream.on('error', (err) => {
+    stream.on('error', err => {
       reject(err);
     });
   });
@@ -52,7 +52,7 @@ module.exports = {
         commands.push(cp);
 
         const commandPromise = new Promise((resolve, reject) => {
-          cp.on('exit', (exitCode) => {
+          cp.on('exit', exitCode => {
             const res = timer.stop();
 
             let stdoutPromise = Promise.resolve('');
@@ -66,7 +66,7 @@ module.exports = {
               stderrPromise = streamToString(cp.stderr);
             }
 
-            Promise.all([stdoutPromise, stderrPromise]).then((results) => {
+            Promise.all([stdoutPromise, stderrPromise]).then(results => {
               const args = {
                 cp,
                 stdout: results[0],
@@ -79,11 +79,10 @@ module.exports = {
               me.fire('command:exit', args);
               resolve(args);
             });
-
           });
 
-          cp.on('error', (err) => {
-            err = err || { };
+          cp.on('error', err => {
+            err = err || {};
             const res = timer.stop();
             err.duration = res.diff;
             err.durationFormatted = res.diffFormatted;
@@ -97,13 +96,12 @@ module.exports = {
         return commandPromise;
       },
       getKillCommand() {
-        return `kill -9 ${  commands.map(cmd => cmd.pid).join(' ')}`;
+        return `kill -9 ${commands.map(cmd => cmd.pid).join(' ')}`;
       },
       stopAll() {
         const me = this;
-        commands.forEach((cp) => {
+        commands.forEach(cp => {
           if (!cp.exitCode) {
-
             cp.removeAllListeners('exit');
             cp.removeAllListeners('error');
             me.fire('command:killed', cp);

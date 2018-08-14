@@ -1,7 +1,7 @@
 const exec = require('child_process').exec;
 const path = require('path');
-const nodeProcess = require('./process');
 const domain = require('domain');
+const nodeProcess = require('./process');
 const manager = require('../index');
 
 const addNPMBinToPath = cb =>
@@ -17,7 +17,7 @@ const addNPMBinToPath = cb =>
         process.env.FORCE_COLOR = 'true';
       }
 
-      process.env.PATH += `${  path.delimiter  }${stdout.trim()}`;
+      process.env.PATH += `${path.delimiter}${stdout.trim()}`;
 
       cb && cb();
       resolve();
@@ -26,10 +26,9 @@ const addNPMBinToPath = cb =>
 
 const printFailed = entries =>
   entries.reduce((seq, entry) => {
-    seq += `   - cmd: ${  entry.cmd  }, exitCode: ${  entry.exitCode  }\n`;
+    seq += `   - cmd: ${entry.cmd}, exitCode: ${entry.exitCode}\n`;
     return seq;
   }, '\n');
-
 
 module.exports = {
   _executeCommandsInDashboard(program, cmds) {
@@ -53,7 +52,6 @@ module.exports = {
         `);
     }
 
-
     const { getGridAndScreen, setProcessLogToGrid } = gridModule;
 
     const { grid, screen } = getGridAndScreen();
@@ -67,7 +65,7 @@ module.exports = {
     }, []);
 
     screen.key(['escape', 'q', 'C-c'], () => {
-      commands.forEach((cmd) => {
+      commands.forEach(cmd => {
         program.subtle('stopping', cmd);
         cmd.stop();
       });
@@ -91,7 +89,7 @@ module.exports = {
 
     cmdManager.on('command:exit', (e, args) => {
       const method = args.exitCode === 0 ? 'subtle' : 'warn';
-      program[method]('command', args.cmd, 'exited with code', `${args.exitCode  }, took:`, args.durationFormatted);
+      program[method]('command', args.cmd, 'exited with code', `${args.exitCode}, took:`, args.durationFormatted);
       if (opts.sortOutput) {
         args.stdout && console.log(args.stdout);
         args.stderr && console.error(args.stderr);
@@ -101,7 +99,6 @@ module.exports = {
         cmdManager.stopAll();
         process.exit( 1 ); // eslint-disable-line
       }
-
     });
 
     cmdManager.on('command:killed', (e, args) => {
@@ -118,9 +115,9 @@ module.exports = {
       stdio: opts.sortOutput ? 'pipe' : 'inherit',
     });
 
-    p.then((args) => {
+    p.then(args => {
       const results = [];
-      args.forEach((result) => {
+      args.forEach(result => {
         if (result.exitCode !== 0) {
           results.push({
             cmd: result.cmd,
@@ -140,13 +137,13 @@ module.exports = {
 
     To kill commands from the shell In case I become a zombie, execute:
 
-    ${  cmdManager.getKillCommand()}
+    ${cmdManager.getKillCommand()}
 
     `;
 
     program.subtle(lines);
 
-    nodeProcess.on('SIGINT', (code) => {
+    nodeProcess.on('SIGINT', code => {
       program.subtle('killing all processes');
       cmdManager.stopAll();
       nodeProcess.exit(code);

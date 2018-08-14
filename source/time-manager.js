@@ -6,7 +6,7 @@ const timeManager = {
     return {
       stop() {
         const diff = process.hrtime(start);
-        const theDiff = (diff[0] * 1e9) + diff[1];
+        const theDiff = diff[0] * 1e9 + diff[1];
 
         return {
           diff: theDiff,
