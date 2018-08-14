@@ -72,7 +72,7 @@
     "watch-spawn": "2.0.0"
   },
   "dependencies": {
-    "clix": "2.2.1",
+    "clix": "2.2.2",
     "dispatchy": "1.0.3",
     "es6-promise": "4.0.5",
     "extend": "3.0.2",
