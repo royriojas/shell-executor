@@ -1,5 +1,21 @@
 
 # shell-executor - Changelog
+## v5.0.0
+- **Refactoring**
+  - Upgrade shell-executor - [d098697]( https://github.com/royriojas/shell-executor/commit/d098697 ), [Roy Riojas](https://github.com/Roy Riojas), 14/08/2018 03:41:43
+
+    
+- **undefined**
+  - package.json to reduce vulnerabilities - [ba0c608]( https://github.com/royriojas/shell-executor/commit/ba0c608 ), [snyk-bot](https://github.com/snyk-bot), 13/08/2018 21:28:02
+
+    The following vulnerabilities are fixed with an upgrade:
+    - https://snyk.io/vuln/npm:moment:20170905
+    
+  - package.json to reduce vulnerabilities - [ad34d7d]( https://github.com/royriojas/shell-executor/commit/ad34d7d ), [snyk-bot](https://github.com/snyk-bot), 29/07/2018 21:18:32
+
+    The following vulnerabilities are fixed with an upgrade:
+    - https://snyk.io/vuln/npm:extend:20180424
+    
 ## v4.0.0
 #### Breaking change
 - **Refactoring**
