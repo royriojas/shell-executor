@@ -1,5 +1,11 @@
 #!/usr/bin/env node
-require('babel-polyfill');
+
+try {
+  require('@babel/polyfill'); // eslint-disable-line global-require
+} catch (err) {
+  console.log('@babel/polyfill not found please install it');
+}
+
 const cliLauncher = require('clix');
 const main = require('../src/main');
 
