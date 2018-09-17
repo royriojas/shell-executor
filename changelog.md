@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v6.0.0
+- **Refactoring**
+  - Upgrade babel version to 7 - [fc9fd52]( https://github.com/royriojas/shell-executor/commit/fc9fd52 ), [Roy Riojas](https://github.com/Roy Riojas), 17/09/2018 04:45:10
+
+    
 ## v5.0.0
 - **Refactoring**
   - Upgrade shell-executor - [d098697]( https://github.com/royriojas/shell-executor/commit/d098697 ), [Roy Riojas](https://github.com/Roy Riojas), 14/08/2018 03:41:43
