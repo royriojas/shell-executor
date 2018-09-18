@@ -65,7 +65,6 @@
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@redisrupt/eslint-red": "1.0.2",
     "blessed": "0.1.81",
@@ -79,6 +78,7 @@
     "watch-spawn": "2.0.0"
   },
   "dependencies": {
+    "@babel/polyfill": "7.0.0",
     "clix": "2.2.2",
     "dispatchy": "1.0.3",
     "es6-promise": "4.2.4",
