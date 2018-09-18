@@ -1,5 +1,10 @@
 
 # shell-executor - Changelog
+## v6.0.1
+- **Refactoring**
+  - babel-polyfill moved to dependencies. Closes [#6](https://github.com/royriojas/shell-executor/issues/6) - [ad1acff]( https://github.com/royriojas/shell-executor/commit/ad1acff ), [Roy Riojas](https://github.com/Roy Riojas), 18/09/2018 13:12:34
+
+    
 ## v6.0.0
 - **Refactoring**
   - Upgrade babel version to 7 - [fc9fd52]( https://github.com/royriojas/shell-executor/commit/fc9fd52 ), [Roy Riojas](https://github.com/Roy Riojas), 17/09/2018 04:45:10
