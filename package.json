@@ -20,7 +20,9 @@
     "bump-minor": "npm run pre-v && npm version minor -m 'BLD: Release v%s' && npm run post-v",
     "bump-patch": "npm run pre-v && npm version patch -m 'BLD: Release v%s' && npm run post-v",
     "prepublish": "npm run build",
-    "build": "babel source/ -d dist/"
+    "build": "babel source/ -d dist/",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "bin": {
     "sx": "./dist/bin/cli.js",
@@ -85,7 +87,8 @@
     "extend": "3.0.2",
     "pretty": "2.0.0",
     "pretty-time": "0.2.0",
-    "spawnly": "1.0.1"
+    "spawnly": "1.0.1",
+    "snyk": "^1.105.0"
   },
   "bugs": {
     "url": "https://github.com/royriojas/shell-executor/issues"
@@ -99,5 +102,6 @@
     "shell exec",
     "exec",
     "spawn"
-  ]
+  ],
+  "snyk": true
 }
