@@ -52,19 +52,18 @@ module.exports = {
         commands.push(cp);
 
         const commandPromise = new Promise((resolve, reject) => {
+          let stdoutPromise = Promise.resolve('');
+          let stderrPromise = Promise.resolve('');
+
+          if (cp.stdout) {
+            stdoutPromise = streamToString(cp.stdout);
+          }
+          if (cp.stderr) {
+            stderrPromise = streamToString(cp.stderr);
+          }
+
           cp.on('exit', exitCode => {
             const res = timer.stop();
-
-            let stdoutPromise = Promise.resolve('');
-            let stderrPromise = Promise.resolve('');
-
-            if (cp.stdout) {
-              stdoutPromise = streamToString(cp.stdout);
-            }
-
-            if (cp.stderr) {
-              stderrPromise = streamToString(cp.stderr);
-            }
 
             Promise.all([stdoutPromise, stderrPromise]).then(results => {
               const args = {
