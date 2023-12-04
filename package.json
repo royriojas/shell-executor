@@ -79,7 +79,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "7.0.0",
-    "clix": "2.2.2",
+    "clix": "5.0.0",
     "dispatchy": "1.0.3",
     "es6-promise": "4.2.4",
     "extend": "3.0.2",
